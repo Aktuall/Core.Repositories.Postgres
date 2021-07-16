@@ -14,6 +14,7 @@ namespace Aktuall.Core.Repositories.Postgres
     {
         protected readonly DbContext Context;
         protected readonly DbSet<TEntity> Set;
+        protected readonly AbstractValidator<TEntity, TKey> Validator;
 
         protected AbstractRepository(DbContext context, DbSet<TEntity> set)
         {
@@ -68,6 +69,18 @@ namespace Aktuall.Core.Repositories.Postgres
         public virtual async Task<IReadOnlyList<TEntity>> GetAllAsync()
         {
             return await Set.ToListAsync();
+        }
+
+        protected void Validate(TEntity entity)
+        {
+            Validator.Validate(entity);
+            Validator.CustomizeValidate(entity);
+        }
+
+        protected void Validate(IEnumerable<TEntity> entities)
+        {
+            foreach (var entity in entities) 
+                Validate(entity);
         }
     }
 }
