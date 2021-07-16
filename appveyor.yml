@@ -1,0 +1,34 @@
+version: 1.0.{build}
+
+image:
+- Visual Studio 2019
+
+branches:
+  only:
+    - master
+
+dotnet_csproj:
+  patch: true
+  file: '*\*.csproj'
+  version: '$(APPVEYOR_REPO_TAG_NAME)'
+  package_version: '{version}'
+  assembly_version: '{version}'
+  file_version: '{version}'
+  informational_version: '{version}'
+
+build_script:
+  - cmd: echo Start build script
+  - cmd: dotnet build Aktuall.Core.Repositories.Postgres\Aktuall.Core.Repositories.Postgres.csproj
+  - cmd: dotnet pack Aktuall.Core.Repositories.Postgres\Aktuall.Core.Repositories.Postgres.csproj -o Packages
+
+artifacts:
+- path: 'Packages\*.nupkg'
+
+deploy:
+  - provider: NuGet
+    on:
+      APPVEYOR_REPO_TAG: true  
+    api_key:
+      secure: 2pajrRY2CavGFpYQNxvqVH989FUv3pRa2oKTB6Ar9Fb45obCmBzBqoeJrkp3+nrx
+    skip_symbols: false
+    artifact: /.*\.nupkg/
