@@ -16,10 +16,11 @@ namespace Aktuall.Core.Repositories.Postgres
         protected readonly DbSet<TEntity> Set;
         protected readonly AbstractValidator<TEntity, TKey> Validator;
 
-        protected AbstractRepository(DbContext context, DbSet<TEntity> set)
+        protected AbstractRepository(DbContext context, DbSet<TEntity> set, AbstractValidator<TEntity, TKey> validator)
         {
             Context = context;
             Set = set;
+            Validator = validator;
         }
 
         public virtual async Task<TEntity> InsertAsync(TEntity entity)
