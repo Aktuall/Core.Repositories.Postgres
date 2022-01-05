@@ -26,6 +26,8 @@ public static class ServiceCollectionExtensions
 
         var builder = new PostgresRepositoriesBuilder(services, context);
 
+        services.AddSingleton(context);
+
         return builder;
     }
 }
