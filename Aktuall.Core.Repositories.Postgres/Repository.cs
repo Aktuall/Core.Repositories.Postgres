@@ -8,15 +8,15 @@ using Microsoft.EntityFrameworkCore;
 namespace Aktuall.Core.Repositories.Postgres;
 
 [PublicAPI]
-public abstract class AbstractRepository<TEntity, TKey> 
+public abstract class Repository<TEntity, TKey> 
     where TKey : class
     where TEntity : Entity<TKey>
 {
     protected readonly DbContext Context;
     protected readonly DbSet<TEntity> Set;
-    protected readonly AbstractValidator<TEntity, TKey> Validator;
+    protected readonly Validator<TEntity, TKey> Validator;
 
-    protected AbstractRepository(DbContext context, DbSet<TEntity> set, AbstractValidator<TEntity, TKey> validator)
+    protected Repository(DbContext context, DbSet<TEntity> set, Validator<TEntity, TKey> validator)
     {
         Context = context;
         Set = set;

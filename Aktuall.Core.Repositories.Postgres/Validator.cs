@@ -1,6 +1,6 @@
 ﻿namespace Aktuall.Core.Repositories.Postgres;
 
-public abstract class AbstractValidator<TEntity, TKey>
+public class Validator<TEntity, TKey>
     where TKey : class
     where TEntity : Entity<TKey>
 {

@@ -20,7 +20,7 @@ public sealed class PostgresRepositoriesBuilder
         where TEntity : Entity<TKey>
         where TKey : class
     {
-        services.AddSingleton<AbstractValidator<TEntity, TKey>>();
+        services.AddSingleton<Validator<TEntity, TKey>>();
 
         return this;
     }
@@ -30,7 +30,7 @@ public sealed class PostgresRepositoriesBuilder
         where TKey : class
     {
         services.AddSingleton(context.Set<TEntity>());
-        services.AddSingleton<AbstractRepository<TEntity, TKey>>();
+        services.AddSingleton<Repository<TEntity, TKey>>();
 
         return this;
     }
