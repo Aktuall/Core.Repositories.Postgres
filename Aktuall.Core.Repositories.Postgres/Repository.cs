@@ -16,7 +16,7 @@ public class Repository<TEntity, TKey>
     protected readonly DbSet<TEntity> Set;
     protected readonly Validator<TEntity, TKey> Validator;
 
-    protected Repository(DbContext context, DbSet<TEntity> set, Validator<TEntity, TKey> validator)
+    public Repository(DbContext context, DbSet<TEntity> set, Validator<TEntity, TKey> validator)
     {
         Context = context;
         Set = set;
