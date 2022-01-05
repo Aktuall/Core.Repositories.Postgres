@@ -17,7 +17,6 @@ public static class ServiceCollectionExtensions
     public static PostgresRepositoriesBuilder AddPostgresRepositories(this IServiceCollection services, IConfiguration configuration)
     {
         var postgresConfig = configuration.Get<PostgresConfig>();
-        services.AddSingleton<DbContext>();
 
         var contextOptionsBuilder = new DbContextOptionsBuilder();
         contextOptionsBuilder.UseNpgsql(postgresConfig.ConnectionString);
