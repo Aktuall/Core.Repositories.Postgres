@@ -16,22 +16,22 @@ public sealed class PostgresRepositoriesBuilder
         this.context = context;
     }
 
-    public IServiceCollection AddKeyValidator<TEntity, TKey>()
+    public PostgresRepositoriesBuilder AddKeyValidator<TEntity, TKey>()
         where TEntity : Entity<TKey>
         where TKey : class
     {
         services.AddSingleton<AbstractValidator<TEntity, TKey>>();
 
-        return services;
+        return this;
     }
 
-    public IServiceCollection AddRepository<TEntity, TKey>()
+    public PostgresRepositoriesBuilder AddRepository<TEntity, TKey>()
         where TEntity : Entity<TKey>
         where TKey : class
     {
         services.AddSingleton(context.Set<TEntity>());
         services.AddSingleton<AbstractRepository<TEntity, TKey>>();
 
-        return services;
+        return this;
     }
 }
