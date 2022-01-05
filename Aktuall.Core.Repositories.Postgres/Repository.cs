@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Aktuall.Core.Repositories.Postgres;
 
 [PublicAPI]
-public abstract class Repository<TEntity, TKey> 
+public class Repository<TEntity, TKey> 
     where TKey : class
     where TEntity : Entity<TKey>
 {
