@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	  <TargetFramework>net5.0</TargetFramework>
+	  <TargetFramework>net6.0</TargetFramework>
 	  <Version>1.0.0</Version>
 	  <PackageId>Aktuall.Core.Repositories.Postgres</PackageId>
 	  <Authors>Aktuall</Authors>
@@ -10,7 +10,8 @@
 
   <ItemGroup>
     <PackageReference Include="JetBrains.Annotations" Version="2021.1.0" />
-    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.7" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="6.0.0" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.0" />
   </ItemGroup>
 
 </Project>

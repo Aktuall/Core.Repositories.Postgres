@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31025.194
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary1", "ClassLibrary1\ClassLibrary1.csproj", "{F5A32F6E-BE76-4628-8612-6BC67DAE681D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositories.Postgres", "Aktuall.Core.Repositories.Postgres\Aktuall.Core.Repositories.Postgres.csproj", "{F5A32F6E-BE76-4628-8612-6BC67DAE681D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
